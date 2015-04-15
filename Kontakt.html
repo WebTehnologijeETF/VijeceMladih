@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
 
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <script src="MenuJava.js" type="text/javascript"></script>
+  <script src="ValidacijaKontakt.js" type="text/javascript"></script>
   <meta name="viewport" content="width=device-width, inital-scale=1.0"/>
 
 </head>
@@ -44,7 +44,18 @@
  <div class="mainContent"> 
   <div class="content">
     <article class="topContent">
-     
+      <form class="forma" method="post" autocomplete="off" enctype="multipart/form-data" onSubmit="return validacija(this);" name="form">
+
+        <h2>Kontakt forma</h2>
+          <!--<p class="kontakt">  *Ime i prezime: &nbsp;: &nbsp;&nbsp;&nbsp;<input id="name" type="text" name="imePrezime" required> -->
+
+          <p class="kontakt">*Ime i prezime <input type="text" id="name" name="name" value="" tabindex="1" title="Please write your name and surname" required />
+          <p class="kontakt">  *E-mail <input id="email" type="text" name="email" value="" tabindex="2" required />
+          <p class="kontakt"> <br>Poruka: &nbsp;: </p> 
+          <textarea name="poruka" rows="20" cols="50" required> </textarea> <br>
+          <input class="kontakt" type="submit" value="Posalji"> <p>
+
+      </form>
     </article>
   </div>
  </div>
