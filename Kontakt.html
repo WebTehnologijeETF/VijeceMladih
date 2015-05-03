@@ -4,9 +4,8 @@
 <head>
   <title> Vijece mladih OO Stari Grad</title>
   <meta charset="utf-8" />
-
+ <!-- <script src="ValidacijaKontakt.js" type="text/javascript"></script>-->
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <script src="ValidacijaKontakt.js" type="text/javascript"></script>
   <meta name="viewport" content="width=device-width, inital-scale=1.0"/>
 
 </head>
@@ -24,6 +23,7 @@
               <li><a href="#">O nama</a></li>
               <li><a href="#">Gdje smo</a></li>
               <li><a href="Kontakt.html#">Kontakt</a></li>
+              <li><a href="Prebivaliste.html#">Prebivaliste</a></li>
             </ul>
 
           </li><li>
@@ -44,22 +44,23 @@
  <div class="mainContent"> 
   <div class="content">
     <article class="topContent">
-      <form class="forma" method="post" autocomplete="off" enctype="multipart/form-data" onSubmit="return validacija(this);" name="form">
-
-        <h2>Kontakt forma</h2>
-          <!--<p class="kontakt">  *Ime i prezime: &nbsp;: &nbsp;&nbsp;&nbsp;<input id="name" type="text" name="imePrezime" required> -->
-
-          <p class="kontakt">*Ime i prezime <input type="text" id="name" name="name" value="" tabindex="1" title="Please write your name and surname" required />
-          <p class="kontakt">  *E-mail <input id="email" type="text" name="email" value="" tabindex="2" required />
-          <p class="kontakt"> <br>Poruka: &nbsp;: </p> 
-          <textarea name="poruka" rows="20" cols="50" required> </textarea> <br>
-          <input class="kontakt" type="submit" value="Posalji"> <p>
-
-      </form>
+    <form id="forma" action="http://google.com" method="GET">
+      <h2>Kontakt forma</h2>
+      <table border="0">
+        <tr><td><span> Ime i prezime: </span> </td> <td> <input type="text" id="name" name="name" value="" tabindex="1" title="Please write your name and surname" required /></td></tr>
+        <tr><td><span>E-mail:   </span> </td> <td> <input id="email" type="text" name="email" value="" tabindex="2" required /></td></tr>
+        <tr><td><span>Opcina:   </span> </td> <td> <input id="opcina" type="text" name="opcina" value="" tabindex="3" required /></td></tr>
+        <tr><td><span>Mjesto:   </span> </td> <td> <input id="mjesto" type="text" name="mjesto" value="" tabindex="4" required /></td></tr>
+        <tr><td colspan="2"><input type="submit" value="Posalji"></td></tr>
+      </table>
+    </form>
+    <div id="Upisi"></div>
+    <script src="ValidacijaKontakt.js"></script>
     </article>
+
+    
   </div>
  </div>
-
 <aside class="Sidebar1">
     <article>
       <h2>Članice VM: </h2>

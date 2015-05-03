@@ -4,9 +4,8 @@
 <head>
   <title> Vijece mladih OO Stari Grad</title>
   <meta charset="utf-8" />
-
+  <!--<script src="ValidacijaKontakt.js" type="text/javascript"></script>-->
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <script src="MenuJava.js" type="text/javascript"></script>
   <meta name="viewport" content="width=device-width, inital-scale=1.0"/>
 
 </head>
@@ -45,28 +44,23 @@
  <div class="mainContent"> 
   <div class="content">
     <article class="topContent">
-      <header>
-        <h2><a href="#" title="First post"> Linkovi: </a></h2>
-      </header>
-      <footer>
-        <p class="post-info"> Korisni linkovi za mlade u BiH </p>
-      </footer>
-      <div class="list">
-        <ul id="links">
 
-          <li> <a href="http://www.oiabih.info"> Omladinska informativna agencija Bosne i Hercegovine </a> <br><br> </li>
-          <li> <a href="http://mladi.info"> Portal mladi.info </a><br><br> </li>
-          <li> <a href="https://www.facebook.com/www.mladi.info"> Portal mladi.info | Facebook </a><br><br> </li>
-          <li> <a href="http://www.hajmo.ba"> Portal za mobilnost mladih </a><br><br> </li>
-          <li> <a href="http://www.mladi.gov.ba"> Službena stranica Komisije za koordinaciju pitanja mladih u BiH </a><br><br> </li>
-          <li> <a href="http://www.mladi-bih.nl/"> Službena stranica organizacije Mladi BiH</a><br><br> </li>
-        </ul>
-      </div>
+      <form class="forma" method="post" autocomplete="off" enctype="multipart/form-data" name="form"> 
+     <!-- <form id="forma" action="http://google.com" method="GET">-->
+
+        <h2>Podaci o prebivalistu</h2>
+          <p class="kontakt">Adresa:        <input id="adresa" type="text" name="adresa" value="" tabindex="3" required />
+          <p class="kontakt"> Opcina:       <input type="text" name="opcina" id="opcina"  tabindex="4" required > </p>           
+          <p class="kontakt"> Mjesto:       <input type="text" name="mjesto" id="mjesto" tabindex="5" required > </p>
+          <input class="kontakt" type="button" id="submit" onclick="MjestoOpcina();" value="Submit"> <p>
+      </form>
+      <div id="Upisi"></div>
+      <script src="ValidacijaKontakt.js" type="text/javascript"></script>
     </article>
   </div>
  </div>
 
- <aside class="Sidebar1">
+<aside class="Sidebar1">
     <article>
       <h2>Članice VM: </h2>
       <button>Incijativa mladih za ljudska prava – YIHR</button>
@@ -82,7 +76,6 @@
       <button>Mlade snage – Youth Force</button><br><br>
     </article>
   </aside>
-  
 
   <footer class="mainFooter"> 
     <p> Copyright &copy; 2015 Aida Hasović </p>

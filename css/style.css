@@ -25,7 +25,6 @@ table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
-
 .body{
 	margin: 0 auto;
 	width: 70%;
@@ -130,6 +129,12 @@ table, th, td {
 	overflow: hidden;
 	padding: 3% 5%;
 	margin-top: 15px;
+}
+.topContent.table
+{
+	border: none;
+	border-width: none;
+	border-color: transparent;
 }
 .post-info {
 	font-style: italic;
