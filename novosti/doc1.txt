@@ -1,5 +1,2 @@
-12.05.2015. 10.53.00
-Aida Hasovic
-STIPENDIJE ZA MASTER STUDIJ U HRVATSKOJ
-
+12.05.2015. 10.53.00Aida HasovicSTIPENDIJE ZA MASTER STUDIJ U HRVATSKOJ
 Baza stipendija sadrži pregled programa stipendiranja i drugih oblika financijske potpore za studij u Hrvatskoj ili inozemstvu, koje dodjeljuju hrvatske institucije ili institucije koje su smještene u Hrvatskoj.Baza sadrži detaljne informacije o institucijama koje dodjeljuju stipendije, o podrucjima za koje se dodjeljuju stipendije, o iznosu i broju stipendija te o proceduri i vremenu prijavljivanja.

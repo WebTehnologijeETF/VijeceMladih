@@ -121,6 +121,30 @@ table, th, td {
 	width: 70%;
 	float: left;
 }
+.content .datum {
+	color: #099;
+	width: 10px;
+	float: right;
+}
+.content .autor {
+	color: #099;
+	width: 70%;
+	float: right;
+}
+.content .details {
+	color: #099;
+	width: 15px;
+	float: right;
+}
+.contentN
+{
+	background-color: white;
+    font-size:85%;
+    color:#999;
+    padding:3% 5%;
+    text-transform: uppercase;
+    text-align:center;
+}
 .topContent {
 	background-color: #D6D6FF;
 	border-radius: 5px;
