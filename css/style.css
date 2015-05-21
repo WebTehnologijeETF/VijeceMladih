@@ -259,3 +259,11 @@ table, th, td {
 	}
 
 }
+
+.tijelokomentara {
+	background-color: white;
+}
+
+.komentari a {
+	font-style: italic;
+	padding-left: 10px;
