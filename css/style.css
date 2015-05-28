@@ -266,6 +266,7 @@ table, th, td {
 
 .komentari a {
 	font-style: italic;
+<<<<<<< HEAD
 	padding-left: 10px;
 }
 
@@ -329,3 +330,6 @@ table, th, td {
 	right:25px;
 	top:15px;
 }
+=======
+	padding-left: 10px;
+>>>>>>> origin/master

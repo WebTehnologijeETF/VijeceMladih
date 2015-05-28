@@ -7,6 +7,7 @@
 
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <script src="MenuJava.js" type="text/javascript"></script>
+  <script src="Novosti.js" type="text/javascript"></script>
   <meta name="viewport" content="width=device-width, inital-scale=1.0"/>
 </head>
 
@@ -22,7 +23,7 @@
             <ul>
               <li><a href="#">O nama</a></li>
               <li><a href="#">Gdje smo</a></li>
-              <li><a href="Novosti.html#">Novosti</a></li>
+              <li><a href="Novosti.php#">Novosti</a></li>
               <li><a href="Kontakt.html#">Kontakt</a></li>
               <li><a href="Prebivaliste.html#">Prebivaliste</a></li>
             </ul>
@@ -40,34 +41,10 @@
       </div>
     </div>
  </header>
+
 <!--End of header-->
   <div class="mainContent">
-  <div class="content">
-    <article class="topContent">
-        <header>
-          <h2><a href="#" title="First post"> Nešto o nama </a></h2>
-        </header>
-        <footer>
-          <p class="post-info"> Informacije o Vijeću mladih Stari Grad
-          </p>
-        </footer>
-          <content>
-        <p>Vijeće mladih Općine Stari Grad Sarajevo je nevladina organizacija osnovana 11. aprila 2012. godine. Misija Vijeća mladih Stari Grad je postati krovna organizacija na području Općine Stari Grad Sarajevo koja predstavlja i zastupa interese mladih i omladinskih udruženja koristeći resurse udruženja članica Vijeća mladih. Članice Vijeća su omladinska udruženja, a trenutno Vijeće broji 10 članica.</p>
-        <p class="detalji"> <a >Detaljnije...</a> </p>
-          </content>
-    </article>
-    <article class="topContent">
-        <header>
-          <h2><a href="#" title="Second post">Institut za razvoj mladih KULT</a></h2>
-        </header>
-        <footer>
-          <p class="post-info"> Autor: Aida Hasović, 20.03.2015.</p>
-        </footer>
-          <content>
-        <p>Institut za razvoj mladih KULT osnovan je na državnom nivou 2002. g. pod nazivom Udruženje KULT i pod tim nazivom je djelovao do maja 2011. g. Pored Centralnog ureda u Sarajevu imamo svoj ured u Brčko-Distriktu BiH i Gradačcu, koji su nastavili raditi pod starim nazivom. Naša saradnja s vlastima izuzetno je učinkovita i temelji se na partnerskim odnosima. KULT pokušava u svim mjestima u kojima ima svoj ured provoditi aktivnosti koje su ciljnoj grupi potrebne na licu mjesta. Kako bismo utvrdili težišta rada, svake godine održavamo radionice planiranja.</p>   
-        <p class="detalji"> <a href="http://www.mladi.org" >Detaljnije...</a> </p>
-          </content>
-    </article>  
+  <div id="content" class="content">
   </div>
  <aside class="Sidebar1">
     <article>
@@ -91,6 +68,7 @@
     <p> Copyright &copy; 2015 Aida Hasović </p>
   </footer>
 </div>
+<?php include 'PrikazNovosti.php'; ?>
 </body>
 
 </html>
