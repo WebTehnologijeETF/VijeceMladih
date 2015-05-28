@@ -259,3 +259,73 @@ table, th, td {
 	}
 
 }
+
+.tijelokomentara {
+	background-color: white;
+}
+
+.komentari a {
+	font-style: italic;
+	padding-left: 10px;
+}
+
+#greska{
+	font-family: Calibri, sans-serif;
+	font-size: 13pt;
+	position:absolute;
+	top:150px;
+	left:15px;
+	color:red;
+	font-weight:bold;
+}
+
+.loginTable {
+	border: 1px solid #BBBBBB;
+}
+
+.loginTitle {
+
+        font: 16px Arial, Helvetica, sans-serif;
+        font-weight: normal;
+        background: #0099FF;
+        color: #FFFFFF;
+
+}
+
+#loginElement{
+	position:absolute;
+	top:15%;
+	left:30%;
+}
+
+.loginInput {
+	font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        background: #FFFFFF;
+        color: #000000;
+        border: 1px solid #CCCCCC;
+        width: 100%;
+        padding: 3px;
+        -moz-border-radius: 3px;
+        border-style: inset;
+}
+
+.loginText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #7F7F7F;
+	text-align: right;
+}
+
+.sifraText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: black;
+	text-align: right;
+}
+
+#statusPrijave {
+	position:absolute;
+	right:25px;
+	top:15px;
+}
