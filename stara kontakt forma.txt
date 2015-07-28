@@ -20,7 +20,7 @@
           <li><a href="Pocetna.html#">Naslovnica</a></li>
           <li><a href="Novosti.php#">Novosti</a></li>   
           <li><a href="Galerija.html#">Galerija</a></li>
-          <li><a href="Ankete.html#">ÄŒlanice</a></li>
+          <li><a href="Ankete.html#">Clanice</a></li>
           <li><a href="Dokumenti.html#">Dokumenti</a></li>
           <li><a href="#">Kontakt<img src="images/arrow.png" /></a>
                 <ul class="submenu1">
@@ -38,15 +38,14 @@
     <article class="topContent">
     <form id="forma" action="http://google.com" method="GET">
       <h2>Kontakt forma</h2>
-      <label for="name">Ime i prezime: </label>
-      <input name="name"/>
-      <label for="email">Email: </label>
-      <input name="email"/>
-      <label for="comment">Komentar: </label>
-      <textarea name="comment"></textarea>
 
-      <input class="smallButton" type="submit" value ="PoÅ¡alji"/>
-      <input class="smallButton" type="reset" value="PoniÅ¡ti"/> 
+      <table border="0">
+        <tr><td><span> Ime i prezime: </span> </td> <td> <input type="text" id="name" name="name" value="" tabindex="1" title="Please write your name and surname" required autofocus/></td></tr>
+        <tr><td><span>E-mail:   </span> </td> <td> <input id="email" type="email" name="email" value="" tabindex="2" required /></td></tr>
+        <tr><td><span>Opcina:   </span> </td> <td> <input id="opcina" type="text" name="opcina" value="" tabindex="3" required /></td></tr>
+        <tr><td><span>Mjesto:   </span> </td> <td> <input id="mjesto" type="text" name="mjesto" value="" tabindex="4" required /></td></tr>
+        <tr><td colspan="2"><input type="submit" value="Posalji"></td></tr>
+      </table>
     </form>
     <div id="Upisi"></div>
     <script src="ValidacijaKontakt.js"></script>
@@ -57,23 +56,23 @@
  </div>
 <aside class="Sidebar1">
     <article>
-      <h2>ÄŒlanice VM: </h2>
-      <button>Incijativa mladih za ljudska prava â€“ YIHR</button>
+      <h2>Clanice VM: </h2>
+      <button>Incijativa mladih za ljudska prava – YIHR</button>
       <br><br>
-      <button>Asocijacija srednjoÅ¡kolaca u BiH â€“ AsuBiH</button><br><br>
-      <button>Centar za druÅ¡tveno obrazovanje mladih â€“ CDOM</button><br><br>
-      <button>Centar za razvoj internet medija eMreÅ¾a</button><br><br>
+      <button>Asocijacija srednjoškolaca u BiH – AsuBiH</button><br><br>
+      <button>Centar za društveno obrazovanje mladih – CDOM</button><br><br>
+      <button>Centar za razvoj internet medija eMreža</button><br><br>
       <button>Progressum</button><br><br>
-      <button>Grupa za razvoj druÅ¡tvenog poduzetniÅ¡tva </button><br><br>
+      <button>Grupa za razvoj društvenog poduzetništva </button><br><br>
       <button>Metarmofoza</button><br><br>
-      <button>Omladinska novinska agencija u BiH â€“ ONAuBiH</button><br><br>
-      <button>UdruÅ¾enje za promociju omladinskog aktivizma â€“ POMAK</button><br><br>
-      <button>Mlade snage â€“ Youth Force</button><br><br>
+      <button>Omladinska novinska agencija u BiH – ONAuBiH</button><br><br>
+      <button>Udruženje za promociju omladinskog aktivizma – POMAK</button><br><br>
+      <button>Mlade snage – Youth Force</button><br><br>
     </article>
   </aside>
 
   <footer class="mainFooter"> 
-    <p> Copyright &copy; 2015 Aida HasoviÄ‡ </p>
+    <p> Copyright &copy; 2015 Aida Hasovic </p>
   </footer>
 </body>
 

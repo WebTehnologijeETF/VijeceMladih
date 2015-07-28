@@ -187,6 +187,33 @@ table, th, td {
 	background:url('forward.png') 50% 50% no-repeat no-repeat;
    	padding-left: 35px;
 }
+.topContent form
+{
+	width: 550px;
+	margin: 0 auto;
+}
+.topContent label
+{
+	display: block;
+}
+.topContent input{
+	width: 250px;
+	height: 20px;
+	margin: 0 0 0 0px;
+
+}
+.topContent textarea{
+	width: 250px;
+	margin: 0 0 0 0px;
+	
+}
+.topContent .smallButton
+{
+	width: 125px;
+	display: block;
+	padding: 3px;
+	margin-bottom: 5px;
+}
 .Sidebar1 {
 	width: 21%;
 	float: left;
