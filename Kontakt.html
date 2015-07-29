@@ -36,12 +36,22 @@
  <div class="mainContent"> 
   <div class="content">
     <article class="topContent">
-    <form id="forma" action="http://google.com" method="GET">
+    <form id="forma" name="forma" action="mailto:hasovic_aida@hotmail.com" method="post" onsubmit="return validiraj()" enctype="plain/text">
       <h2>Kontakt forma</h2>
-      <label for="name">Ime i prezime: </label>
-      <input name="name"/>
-      <label for="email">Email: </label>
-      <input name="email"/>
+      <label class="required" for="name">Ime i prezime: </label>
+      <input id="name" name="name" type="text"/>
+      <span id="name_validation" class="error"></span>
+
+      <label class="required" for="email">Email: </label>
+      <input id="email" name="email" type="text"/>
+      <span id="email_validation" class="error"></span>
+
+      <label for="telefon">Broj telefona: </label>
+      <input name="telefon"/>
+
+      <label for="naslov">Naslov: </label>
+      <input name="naslov"/>
+
       <label for="comment">Komentar: </label>
       <textarea name="comment"></textarea>
 
@@ -51,8 +61,6 @@
     <div id="Upisi"></div>
     <script src="ValidacijaKontakt.js"></script>
     </article>
-
-    
   </div>
  </div>
 <aside class="Sidebar1">

@@ -134,6 +134,18 @@ table, th, td {
 	-webkit-border-radius: 5px;
 }
 
+label.required:after {
+  content:'*';
+  color:red;
+}
+span.error {
+  background-color:#FFDFDF;
+  color:red;
+}
+#email_validation, #name_validation {
+    display:none;
+}
+
 .content {
 	width: 70%;
 	float: left;

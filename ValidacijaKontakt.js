@@ -1,53 +1,37 @@
-/*var ck_name = /^[A-Za-z0-9 ]{1,50}$/;
-var ck_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+/*var ck_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
-function validacija(form){
+var name = forma.name;
+var email = forma.email
+var telefon = forma.telefon;
+var naslov = forma.naslov;
+var comment = forma.comment;
 
-	var name = form.name.value;
-	var email = form.email.value;  
-	var errors = [];
-	if (!ck_name.test(name)) {
-		alert("\nUnesite svoje ime i prezime!");
-		return false;
- 	}
- 	if (!ck_email.test(email)) {
- 		alert("\nUnesite validnu email adresu!");
- 		return false;
- 	} 
- return true;
-}
-*/
-
-var ck_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-
-var tabela = document.getElementById("forma").getElementsByTagName("table")[0];
-
-var ime = tabela.getElementsByTagName("tr")[0].getElementsByTagName("td")[1].getElementsByTagName("input")[0];
-var email = tabela.getElementsByTagName("tr")[1].getElementsByTagName("td")[1].getElementsByTagName("input")[0];
-var opcina = tabela.getElementsByTagName("tr")[2].getElementsByTagName("td")[1].getElementsByTagName("input")[0];
-var mjesto = tabela.getElementsByTagName("tr")[3].getElementsByTagName("td")[1].getElementsByTagName("input")[0];
-
-
-ime.addEventListener("blur",ispravnostImena,false);
+name.addEventListener("blur",ispravnostnamena,false);
 email.addEventListener("blur", ispravnostMaila, false);
-opcina.addEventListener("blur", ispravnostOpcine, false);
+telefon.addEventListener("blur", ispravnostTelefona, false);
 
 
 document.getElementById("forma").onsubmit = validiraj;
 
 function validiraj(){
 
-	return ispravnostImena() && ispravnostMaila() && ispravnostOpcine();
+	return ispravnostnamena() && ispravnostMaila();// && ispravnostTelefona();
 }
 
-function ispravnostImena() {
-	var ck_name = /^[A-Za-z0-9 ]{1,50}$/;
+function ispravnostnamena() {
+	/*var ck_name = /^[A-Za-z0-9 ]{1,50}$/;
 	var errors = [];
-	if (!ck_name.test(ime)) {
-		alert("\nUnesite svoje ime i prezime!");
+	if (!ck_name.test(name)) {
+		alert("\nUnesite svoje name i prezname!");
 		return false;
  	}
  return true;
+ if(name.value()==""){
+ 	alert("\nUnesite svoje name!");
+    name.focus();
+    return false;
+	}
+	return true;
 }
 
 function ispravnostMaila() {
@@ -59,21 +43,55 @@ function ispravnostMaila() {
  	} 
  return true;
 }
-function ispravnostOpcine() {
-	
-		var req = new XMLHttpRequest();
-		
-		req.onreadystatechange = function() {
-
-			if (ajax.readyState == 4 && ajax.status == 200)
-            			document.getElementById("Upisi").innerHTML = ajax.responseText;
-
-        		if (ajax.readyState == 4 && ajax.status == 404)
-            			document.getElementById("Upisi").innerHTML = ime;
-		}
-		
-		ajax.open("GET", "http://zamger.etf.unsa.ba/wt/mjesto_opcina.php" + opcina + mjesto, true);
-    	ajax.send();
-		
+}*/
+var name = forma.name;
+function ispravnostImena() {
+	var ck_name = /^[A-Za-z0-9 ]{1,50}$/;
+	var errors = [];
+	if (!ck_name.test(name)) {
+		alert("\nUnesite svoje ime i prezime!");
 		return false;
+ 	}
+	return true;
+}
+
+function validiraj() {
+  var valid = 1;
+  var email = document.getElementById('email');
+  var email_validation = document.getElementById("email_validation");
+  var name = document.getElementById('name');
+  var name_validation = document.getElementById("name_validation");
+  var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  
+  if (!ispravnostImena||name.value="") {
+    valid = 0;
+    name_validation.innerHTML = "Field Required";
+    name_validation.style.display = "block";
+    name_validation.parentNode.style.backgroundColor = "#FFDFDF";
+  } else {
+    name_validation.style.display = "none";
+    name_validation.parentNode.style.backgroundColor = "transparent";
+  }
+  
+  if (email.value === "") {
+    valid = 0;
+    email_validation.innerHTML = "Field Required";
+    email_validation.style.display = "block";
+    email_validation.parentNode.style.backgroundColor = "#FFDFDF";
+  } else {
+    email_validation.style.display = "none";
+    email_validation.parentNode.style.backgroundColor = "transparent";
+  }
+  
+  if(!filter.test(email.value)) {
+    valid = 0;
+    email_validation.innerHTML = "Invalid email address";
+    email_validation.style.display = "block";
+    email_validation.parentNode.style.backgroundColor = "#FFDFDF";
+  } else {
+    email_validation.style.display = "none";
+    email_validation.parentNode.style.backgroundColor = "transparent";
+  }
+  if (!valid)
+    return false;
 }
