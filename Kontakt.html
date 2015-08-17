@@ -26,6 +26,10 @@
                 <ul class="submenu1">
                   <li><a href="#">Gdje smo</a></li>
                   <li><a href="Kontakt.html#">Kontaktirajte nas</a></li>
+                  <ul class="submenu2">
+                    <li><a href="#">link 1</a></li>
+                    <li><a href="#">link 2</a></li>
+                  </ul>
                 </ul>
           </li>
         </ul>
@@ -39,15 +43,15 @@
     <form id="forma" name="forma" action="mailto:hasovic_aida@hotmail.com" method="post" onsubmit="return validiraj()" enctype="plain/text">
       <h2>Kontakt forma</h2>
       <label class="required" for="name">Ime i prezime: </label>
-      <input id="name" name="name" type="text"/>
+      <input id="name" name="name" type="text" value="" required/>
       <span id="name_validation" class="error"></span>
 
       <label class="required" for="email">Email: </label>
-      <input id="email" name="email" type="text"/>
+      <input id="email" name="email" type="email" value="" reqired/>
       <span id="email_validation" class="error"></span>
 
-      <label for="telefon">Broj telefona: </label>
-      <input name="telefon"/>
+      <label for="telefon">Broj telefona(format: xxx-xxx-xxx): </label>
+      <input type="tel" name="telefon" pattern="^\d{3}-\d{3}-\d{3}$" />
 
       <label for="naslov">Naslov: </label>
       <input name="naslov"/>
