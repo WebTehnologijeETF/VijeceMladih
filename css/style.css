@@ -50,20 +50,17 @@ table, th, td {
 	height: auto;
 	margin: 2% 0;
 }
-
 #nav
 {
 	background-color: #0033CC;
 	border-radius: 10px;
-
-	/*font-size: 1.143em;*/
 	height: 45px;
 	line-height: 30px;
 	margin: 0 auto 30px auto;
 	text-align: left;
-	
+	text-decoration: none;	
 }
-#nav ul
+#nav ul 
 {
 	list-style-type: none;
 	padding: 0;
@@ -72,8 +69,11 @@ table, th, td {
 }
 #nav ul li
 {
+	width: 100px;
+	text-align: left;
 	float: left; 
 	display: inline-block;
+	position: relative;
 }
 #nav ul li: hover
 {
@@ -107,22 +107,47 @@ table, th, td {
 #nav ul ul
 {
 	display: none;
-	position: absolute;
-	background-color: #ccc;
-	border: 2px solid #0099FF;
+	position: relative;
 	border-top: 0;
-	min-width: 200px;
+	min-width: 170px;
 }
 #nav ul ul li
 {
 	display: block;
-
 }
 #nav ul ul li a,visited
 {
 	color: #ccc;
+	display: block;
 }
 #nav ul ul li a, hover
+{
+	color: #099;
+	text-decoration: none;
+}
+#nav ul ul li:hover ul
+{
+	display: block;
+	height: 45px;
+}
+#nav ul ul ul
+{
+	display: none;
+	position: absolute;
+	top: 45px;
+	left: 100px;
+	min-width: 170px;
+}
+#nav ul ul ul li
+{
+	display: block;
+
+}
+#nav ul ul ul li a,visited
+{
+	color: #ccc;
+}
+#nav ul ul ul li a, hover
 {
 	color: #099;
 	text-decoration: none;

@@ -6,8 +6,9 @@
   <meta charset="utf-8" />
  <!-- <script src="ValidacijaKontakt.js" type="text/javascript"></script>-->
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <meta name="viewport" content="width=device-width, inital-scale=1.0"/>
+  <script src="MenuJava.js" type="text/javascript"></script>
 
+  <meta name="viewport" content="width=device-width, inital-scale=1.0"/>
 </head>
 
 <body class="body">
@@ -22,10 +23,10 @@
           <li><a href="Galerija.html#">Galerija</a></li>
           <li><a href="Ankete.html#">Članice</a></li>
           <li><a href="Dokumenti.html#">Dokumenti</a></li>
-          <li><a href="#">Kontakt<img src="images/arrow.png" /></a>
+          <li><a href="Kontakt.html#">Kontakt<img src="images/arrow.png" /></a>
                 <ul class="submenu1">
                   <li><a href="#">Gdje smo</a></li>
-                  <li><a href="Kontakt.html#">Kontaktirajte nas</a></li>
+                  <li><a href="#">link neki</a></li>
                   <ul class="submenu2">
                     <li><a href="#">link 1</a></li>
                     <li><a href="#">link 2</a></li>
@@ -52,7 +53,7 @@
 
       <label for="telefon">Broj telefona(format: xxx-xxx-xxx): </label>
       <input type="tel" name="telefon" pattern="^\d{3}-\d{3}-\d{3}$" />
-
+      <span class="error"></span>
       <label for="naslov">Naslov: </label>
       <input name="naslov"/>
 
