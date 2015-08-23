@@ -1,5 +1,4 @@
 body{
-	background-image: url("images/b1.jpg");
 	background-color: #FFFFFF;
 	color: #0066FF;
 	font-size: 87.5%; /*14 px*/
@@ -163,13 +162,11 @@ label.required:after {
   content:'*';
   color:red;
 }
-span.error {
+span.erro {
   background-color:#FFDFDF;
   color:red;
 }
-#email_validation, #name_validation {
-    display:none;
-}
+
 
 .content {
 	width: 70%;
@@ -293,7 +290,15 @@ span.error {
 	margin: 10px auto;
 	color: #FFFFFF;
 }
-
+#anketeLista {
+	list-style-image: url("32_5.png");
+}
+.nevidljiv {
+	visibility: hidden;
+}
+.error {
+	visibility: visible;
+}
 @media only screen and (min-width: 150px) and (max-width: 600px)
 {
 	.body{
@@ -424,6 +429,7 @@ span.error {
 	right:25px;
 	top:15px;
 }
+
 =======
 	padding-left: 10px;
 >>>>>>> origin/master

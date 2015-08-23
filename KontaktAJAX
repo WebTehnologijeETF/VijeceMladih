@@ -7,7 +7,7 @@
  <!-- <script src="ValidacijaKontakt.js" type="text/javascript"></script>-->
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <script src="MenuJava.js" type="text/javascript"></script>
-
+  <script src="ValidacijaKontakt.js" type="text/javascript"></script>
   <meta name="viewport" content="width=device-width, inital-scale=1.0"/>
 </head>
 
@@ -42,17 +42,17 @@
   <div class="content">
     <article class="topContent">
 
-      <form class="forma" method="post" autocomplete="off" enctype="multipart/form-data" name="form"> 
+      <form class="forma" method="post" action="Ankete.html" autocomplete="off" enctype="multipart/form-data" name="form" id="ajaxForma"> 
      <!-- <form id="forma" action="http://google.com" method="GET">-->
 
         <h2>Podaci o prebivalištu</h2>
           <p class="kontakt">Adresa:        <input id="adresa" type="text" name="adresa" value="" tabindex="3" required />
-          <p class="kontakt"> Opcina:       <input type="text" name="opcina" id="opcina"  tabindex="4" required > </p>           
-          <p class="kontakt"> Mjesto:       <input type="text" name="mjesto" id="mjesto" tabindex="5" required > </p>
-          <input class="kontakt" type="submit" id="submit" onclick="MjestoOpcina()" value="Submit"> <p>
+          <p class="kontakt"> Opcina:       <input type="text" name="opcina" id="opcina"  tabindex="4" required > <span id="opcina_validation" class="nevidljiv"><img src='images/error.png'> Neispravna općina ili mjesto! </span></p>           
+          <p class="kontakt"> Mjesto:       <input type="text" name="mjesto" id="mjesto" tabindex="5" required > <span id="mjesto_validation" class="nevidljiv"><img src='images/error.png'> Neispravna općina ili mjesto! </span> </p>
+          <input class="kontakt" type="button" id="submit1" value="Submit" onClick="MjestoOpcina()"> <p>
       </form>
       <div id="Upisi"></div>
-     <!--script src="ValidacijaKontakt.js" type="text/javascript"></script-->
+     
     </article>
   </div>
  </div>

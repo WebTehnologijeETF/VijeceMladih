@@ -7,6 +7,7 @@
  <!-- <script src="ValidacijaKontakt.js" type="text/javascript"></script>-->
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <script src="MenuJava.js" type="text/javascript"></script>
+  <script src="ValidacijaKontakt.js"></script>
 
   <meta name="viewport" content="width=device-width, inital-scale=1.0"/>
 </head>
@@ -37,25 +38,25 @@
     </nav>
  </header>
 <!--End of header-->
-
  <div class="mainContent"> 
   <div class="content">
     <article class="topContent">
-    <form id="forma" name="forma" action="mailto:hasovic_aida@hotmail.com" method="post" onsubmit="return validiraj()" enctype="plain/text">
+    <form id="forma" name="forma" action="Ankete.html" method="post" onsubmit="return provjeriFormu()" enctype="plain/text">
       <h2>Kontakt forma</h2>
       <label class="required" for="name">Ime i prezime: </label>
-      <input id="name" name="name" type="text" value="" required/>
-      <span id="name_validation" class="error"></span>
+      <input id="name" name="name" type="text" value=""/>
+      <span id="name_validation" class="nevidljiv"><img src='images/error.png'>Ime mora sadržati najmanje 3 karaktera! </span>
 
-      <label class="required" for="email">Email: </label>
-      <input id="email" name="email" type="email" value="" reqired/>
-      <span id="email_validation" class="error"></span>
+      <label for="email">Email: </label>
+      <input id="email" name="email" type="text" value=""/>
+      <span id="email_validation" class="nevidljiv"><img src='images/error.png'> Neispravan e-mail! </span>
 
       <label for="telefon">Broj telefona(format: xxx-xxx-xxx): </label>
-      <input type="tel" name="telefon" pattern="^\d{3}-\d{3}-\d{3}$" />
-      <span class="error"></span>
+      <input type="tel" name="telefon" id="telefon" />
+      <span id="telefon_validation" class="nevidljiv"><img src='images/error.png'> Neispravan broj telefona! </span>
+
       <label for="naslov">Naslov: </label>
-      <input name="naslov"/>
+      <input name="naslov"autocompl/>
 
       <label for="comment">Komentar: </label>
       <textarea name="comment"></textarea>
@@ -64,7 +65,7 @@
       <input class="smallButton" type="reset" value="Poništi"/> 
     </form>
     <div id="Upisi"></div>
-    <script src="ValidacijaKontakt.js"></script>
+    
     </article>
   </div>
  </div>
@@ -88,6 +89,7 @@
   <footer class="mainFooter"> 
     <p> Copyright &copy; 2015 Aida Hasović </p>
   </footer>
+
 </body>
 
 </html>
