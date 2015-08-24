@@ -14,7 +14,7 @@
   <!--Start of header-->
   <header class="mainHeader">
     <img src="images/logo.gif" alt="logo">
-    <nav id="nav">
+    <!--nav id="nav">
         <ul>
           <li><a href="index.php">Naslovnica</a></li>
           <li><a href="#" onclick="pozovi('novosti')">Novosti</a></li>   
@@ -24,6 +24,25 @@
           <li><a href="#" onclick="pozovi('kontakt')">Kontakt<img src="images/arrow.png" /></a>
                 <ul class="submenu1">
                   <li><a href="#" onclick="pozovi('gdjesmo')">Gdje smo</a></li>
+                  <li><a href="#">link neki</a></li>
+                  <ul class="submenu2">
+                    <li><a href="#">link 1</a></li>
+                    <li><a href="#">link 2</a></li>
+                  </ul>
+                </ul>
+          </li>
+        </ul>
+    </nav-->
+      <nav id="nav">
+        <ul>
+          <li><a href="Pocetna.html#">Naslovnica</a></li>
+          <li><a href="Novosti.php#">Novosti</a></li>   
+          <li><a href="Galerija.html#">Galerija</a></li>
+          <li><a href="Ankete.html#">Članice</a></li>
+          <li><a href="Dokumenti.html#">Dokumenti</a></li>
+          <li><a href="Kontakt.html#">Kontakt<img src="images/arrow.png" /></a>
+                <ul class="submenu1">
+                  <li><a href="KontaktAJAX#">Gdje smo</a></li>
                   <li><a href="#">link neki</a></li>
                   <ul class="submenu2">
                     <li><a href="#">link 1</a></li>
