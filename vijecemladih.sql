@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 29, 2015 at 07:47 PM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
+-- Host: localhost
+-- Generation Time: May 28, 2015 at 12:56 PM
+-- Server version: 5.5.24-log
+-- PHP Version: 5.3.13
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `komentari` (
   `email` varchar(50) COLLATE utf8_slovenian_ci NOT NULL,
   `tekst` varchar(500) COLLATE utf8_slovenian_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `komentari`
@@ -46,8 +46,7 @@ INSERT INTO `komentari` (`id`, `novost`, `datumobjave`, `autor`, `email`, `tekst
 (3, 1, '2015-05-21 11:20:03', 'bhkj', 'nj', 'INSERT into komentari SET novost = :idNovosti, autor = :autor, email = :email, tekst = :tekst;'),
 (4, 1, '2015-05-21 11:20:42', 'bhkj', 'nj', 'njkl'),
 (5, 1, '2015-05-21 11:21:55', 'f', '', 'dvs'),
-(6, 1, '2015-05-21 11:23:43', 'f', '', 'dvs'),
-(7, 1, '2015-08-29 13:55:06', 'Ajdinko', 'a@h', 'Novi komentar');
+(6, 1, '2015-05-21 11:23:43', 'f', '', 'dvs');
 
 -- --------------------------------------------------------
 
@@ -61,6 +60,7 @@ CREATE TABLE IF NOT EXISTS `korisnici` (
   `password` varchar(50) COLLATE utf8_slovenian_ci NOT NULL,
   `ime` varchar(20) COLLATE utf8_slovenian_ci NOT NULL,
   `prezime` varchar(20) COLLATE utf8_slovenian_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8_slovenian_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=2 ;
 
@@ -68,8 +68,8 @@ CREATE TABLE IF NOT EXISTS `korisnici` (
 -- Dumping data for table `korisnici`
 --
 
-INSERT INTO `korisnici` (`id`, `username`, `password`, `ime`, `prezime`) VALUES
-(1, 'aida', '5cce38a2f2c882a660f64c9d378aff82', 'Aida', 'Hasović');
+INSERT INTO `korisnici` (`id`, `username`, `password`, `ime`, `prezime`, `email`) VALUES
+(1, 'aida', 'd0aeeef9a9aeddbaa999b7b65101b3a1', 'Aida', 'Hasović', 'ahasovic1@etf.unsa.ba');
 
 -- --------------------------------------------------------
 
@@ -94,29 +94,7 @@ CREATE TABLE IF NOT EXISTS `novosti` (
 INSERT INTO `novosti` (`id`, `autor`, `naslov`, `datumobjave`, `slika`, `tekst`) VALUES
 (1, 1, 'Nova obavijest', '2015-05-21 09:32:36', 'http://unsa.ba/s/templates/unsa/slike/top_1.jpg', 'Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. '),
 (2, 1, 'Druga obavijest', '2015-05-21 09:32:36', 'http://unsa.ba/s/templates/unsa/slike/top_1.jpg', 'Druga obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. '),
-(3, 1, 'Treća', '2015-08-29 13:19:33', '0', ' Evo neki tekst ludice mala'),
-(4, 1, 'Treća', '2015-08-29 13:19:03', '0', ' Evo neki tekst'),
-(5, 1, 'Treća', '2015-08-29 13:19:12', '0', ' Evo neki tekst');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `proizvod`
---
-
-CREATE TABLE IF NOT EXISTS `proizvod` (
-  `id` int(11) NOT NULL,
-  `naziv` varchar(20) COLLATE utf8_slovenian_ci NOT NULL,
-  `slika` varchar(50) COLLATE utf8_slovenian_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
-
---
--- Dumping data for table `proizvod`
---
-
-INSERT INTO `proizvod` (`id`, `naziv`, `slika`) VALUES
-(1, 'Proizvod1', 'slika.jpg'),
-(1, 'Proizvod1', 'slika.jpg');
+(5, 1, 'Normalan naslov', '2015-05-28 12:56:06', '', 'Normalan tekst');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

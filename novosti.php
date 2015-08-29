@@ -33,6 +33,7 @@
                   </ul>
                 </ul>
           </li>
+          <li><a href="admin.php#">Admin</a></li>
         </ul>
     </nav>
  </header>
@@ -41,55 +42,50 @@
   <div class="mainContent">
   <div id="content" class="content">
     <?php
-      $datoteke = scandir("novosti/");
-      $niz= array();
-      for ($i=2; $i < count($datoteke); $i++) {
-          $n = file("novosti/".$datoteke[$i]);
-          $datum= $n[0];
-          $autor= $n[1];
-          $naslov= $n[2];
-          $slika= $n[3];
-          $tekst="";
-          $minusi=count($n)-1;
-          $detaljniji="";
-          for ($j=4; $j<count($n); $j++) {
-            if ($n[$j]=="--") {
-              $minusi=$j;
-              break;
-            }
-            else $tekst=$tekst.$n[$j];
-          }
-          for ($j=$minusi+1; $j<count($n); $j++) {
-            $detaljniji=$detaljniji.$n[$j];
-          }
+    session_start();
+    include 'db.php';
 
-          $datum=htmlspecialchars($datum, ENT_QUOTES, "UTF-8");
+      if (isset($_POST["autor"])) {
+          $autor=$_POST["autor"];
+          $tekst=$_POST["tekst"];
+          $email=$_POST["email"];
+          $novost=$_POST["novost"];
+          //htmlspecialchar
+
           $autor=htmlspecialchars($autor, ENT_QUOTES, "UTF-8");
-          $naslov=htmlspecialchars($naslov, ENT_QUOTES, "UTF-8");
-          $slika=htmlspecialchars($slika, ENT_QUOTES, "UTF-8");
           $tekst=htmlspecialchars($tekst, ENT_QUOTES, "UTF-8");
-          $minusi=htmlspecialchars($minusi, ENT_QUOTES, "UTF-8");
-          $detaljniji=htmlspecialchars($detaljniji, ENT_QUOTES, "UTF-8");
+          $email=htmlspecialchars($email, ENT_QUOTES, "UTF-8");
+          $novost=htmlspecialchars($novost, ENT_QUOTES, "UTF-8");
 
-          $element = array("datum" => $datum, "autor" => $autor, "naslov" => $naslov, "slika" => $slika, "tekst" => $tekst ,"minusi"=>$minusi,"detaljniji" => $detaljniji);
-          array_push($niz, $element);
+          $sql = "INSERT INTO komentari SET autor=:autor, tekst=:tekst, email=:email, novost=:novost";
+          $upit = $veza->prepare($sql);
+          $upit->bindValue(":autor", $autor);
+          $upit->bindValue(":tekst", $tekst);
+          $upit->bindValue(":email", $email);
+          $upit->bindValue(":novost", $novost);
+          $upit->execute();
+      }
+      $sql ="SELECT n.*, k.ime, k.prezime FROM novosti n, korisnici k WHERE n.autor=k.id";
+      $upit = $veza->prepare($sql);
+      $upit->execute();
+      $rezultat=$upit->fetchAll();
+      foreach($rezultat as $red) {
+        $datum=$red["datumobjave"];
+        $autor=$red["ime"]." ".$red["prezime"];
+        $naslov=$red["naslov"];
+        $slika= $red["slika"];
+        $tekst = $red["tekst"];
+        $id = $red["id"];
+
+        echo "<div class='kutijica'>".$naslov."<br>".$tekst."</div>";
+        echo "<form action ='novosti.php' method ='POST' class='kutijica'> 
+        Komentar: <input type='hidden' name='novost' value=".$id."> <br>
+        Autor: <input type='text' name='autor'><br>
+        Email: <input type='text' name='email' ><br><br>
+        Tekst: <textarea name='tekst'></textarea><br>
+        <input type='submit' name='dugme' value='Dodaj komentar'></form>";
       }
 
-    /*  for ($i=0; $i < count($niz); $i++) {
-        for ($j=0; $j<count($niz)-1-$i; $j++) {
-            //strtodate($niz[$i]["datum"]); // PROVJERITI kako pretvoriti u datum i porediti dva datuma
-            if ($niz[$j+1] < $niz[$j]) {
-                $tmp = $niz[$j];
-                $niz[$j] = $niz[$j+1];
-                $niz[$j+1] = $tmp;
-            }
-        }
-      }
-*/
-      for ($i=0; $i < count($niz); $i++) {
-       // echo "<div class='kutijica'>".$niz[$i]["tekst"]."</div>";
-        echo "<div class='kutijica'>".$niz[$i]["naslov"]."<br>".$niz[$i]["autor"]."<br>".$niz[$i]["datum"]."<br>".$niz[$i]["slika"]."<br>".$niz[$i]["tekst"]."<br>".$niz[$i]["minusi"]."<br>".$niz[$i]["detaljniji"]."</div><br><br>";
-      }
 
     ?>
   </div>
