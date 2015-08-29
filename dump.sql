@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.6deb1
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: May 21, 2015 at 01:25 PM
--- Server version: 5.5.43-0ubuntu0.14.10.1
--- PHP Version: 5.5.12-2ubuntu4.4
+-- Host: 127.0.0.1
+-- Generation Time: Aug 29, 2015 at 07:47 PM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,13 +27,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `komentari` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `novost` int(11) NOT NULL,
   `datumobjave` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `autor` varchar(20) COLLATE utf8_slovenian_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_slovenian_ci NOT NULL,
-  `tekst` varchar(500) COLLATE utf8_slovenian_ci NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=7 ;
+  `tekst` varchar(500) COLLATE utf8_slovenian_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `komentari`
@@ -45,7 +46,8 @@ INSERT INTO `komentari` (`id`, `novost`, `datumobjave`, `autor`, `email`, `tekst
 (3, 1, '2015-05-21 11:20:03', 'bhkj', 'nj', 'INSERT into komentari SET novost = :idNovosti, autor = :autor, email = :email, tekst = :tekst;'),
 (4, 1, '2015-05-21 11:20:42', 'bhkj', 'nj', 'njkl'),
 (5, 1, '2015-05-21 11:21:55', 'f', '', 'dvs'),
-(6, 1, '2015-05-21 11:23:43', 'f', '', 'dvs');
+(6, 1, '2015-05-21 11:23:43', 'f', '', 'dvs'),
+(7, 1, '2015-08-29 13:55:06', 'Ajdinko', 'a@h', 'Novi komentar');
 
 -- --------------------------------------------------------
 
@@ -54,11 +56,12 @@ INSERT INTO `komentari` (`id`, `novost`, `datumobjave`, `autor`, `email`, `tekst
 --
 
 CREATE TABLE IF NOT EXISTS `korisnici` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) COLLATE utf8_slovenian_ci NOT NULL,
   `password` varchar(50) COLLATE utf8_slovenian_ci NOT NULL,
   `ime` varchar(20) COLLATE utf8_slovenian_ci NOT NULL,
-  `prezime` varchar(20) COLLATE utf8_slovenian_ci NOT NULL
+  `prezime` varchar(20) COLLATE utf8_slovenian_ci NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=2 ;
 
 --
@@ -75,13 +78,14 @@ INSERT INTO `korisnici` (`id`, `username`, `password`, `ime`, `prezime`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `novosti` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `autor` int(11) NOT NULL,
   `naslov` varchar(100) COLLATE utf8_slovenian_ci NOT NULL,
   `datumobjave` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `slika` varchar(100) COLLATE utf8_slovenian_ci NOT NULL,
-  `tekst` varchar(1000) COLLATE utf8_slovenian_ci NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=3 ;
+  `tekst` varchar(1000) COLLATE utf8_slovenian_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `novosti`
@@ -89,49 +93,31 @@ CREATE TABLE IF NOT EXISTS `novosti` (
 
 INSERT INTO `novosti` (`id`, `autor`, `naslov`, `datumobjave`, `slika`, `tekst`) VALUES
 (1, 1, 'Nova obavijest', '2015-05-21 09:32:36', 'http://unsa.ba/s/templates/unsa/slike/top_1.jpg', 'Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. '),
-(2, 1, 'Druga obavijest', '2015-05-21 09:32:36', 'http://unsa.ba/s/templates/unsa/slike/top_1.jpg', 'Druga obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. ');
+(2, 1, 'Druga obavijest', '2015-05-21 09:32:36', 'http://unsa.ba/s/templates/unsa/slike/top_1.jpg', 'Druga obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. Nova obavijest je nova obavijest. '),
+(3, 1, 'Treća', '2015-08-29 13:19:33', '0', ' Evo neki tekst ludice mala'),
+(4, 1, 'Treća', '2015-08-29 13:19:03', '0', ' Evo neki tekst'),
+(5, 1, 'Treća', '2015-08-29 13:19:12', '0', ' Evo neki tekst');
+
+-- --------------------------------------------------------
 
 --
--- Indexes for dumped tables
+-- Table structure for table `proizvod`
 --
 
---
--- Indexes for table `komentari`
---
-ALTER TABLE `komentari`
- ADD PRIMARY KEY (`id`);
+CREATE TABLE IF NOT EXISTS `proizvod` (
+  `id` int(11) NOT NULL,
+  `naziv` varchar(20) COLLATE utf8_slovenian_ci NOT NULL,
+  `slika` varchar(50) COLLATE utf8_slovenian_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
 
 --
--- Indexes for table `korisnici`
---
-ALTER TABLE `korisnici`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `novosti`
---
-ALTER TABLE `novosti`
- ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
+-- Dumping data for table `proizvod`
 --
 
---
--- AUTO_INCREMENT for table `komentari`
---
-ALTER TABLE `komentari`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `korisnici`
---
-ALTER TABLE `korisnici`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `novosti`
---
-ALTER TABLE `novosti`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+INSERT INTO `proizvod` (`id`, `naziv`, `slika`) VALUES
+(1, 'Proizvod1', 'slika.jpg'),
+(1, 'Proizvod1', 'slika.jpg');
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
