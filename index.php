@@ -1,3 +1,40 @@
+<?php
+    
+    if(isset($_POST['btnSubmit'])) {
+        $veza = new PDO("mysql:dbname=vijecemladih;host=localhost;charset=utf8", "vijecemladih", "sarajevo");
+        $veza->exec("set names utf8"); 
+    
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $password = md5($password);
+    
+        $upit = $veza->prepare("select * from korisnici where username=? and password=?");           
+        $upit->execute(array($username, $password));           
+        if (!$upit) {
+            $greska = $veza->errorInfo();
+            print "Greška". $greska[2];
+            exit();
+        }
+         $rezultat = NULL;
+            foreach($upit as $value) {
+                $rezultat = $value;
+                break;
+            }
+        if($rezultat == NULL) echo "Ne postoji korisnik";
+        else{          
+            session_start();            
+            $_SESSION['username'] = $rezultat['username'];
+            $_SESSION['ime'] = $rezultat['ime'];
+            $_SESSION['prezime'] = $rezultat['prezime'];
+            $_SESSION['id'] = $rezultat['id'];                
+        }    
+    }
+    if(isset($_POST['odjava'])) {  
+        session_start();
+        session_unset();
+        session_destroy();                                   
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +44,7 @@
 
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <script src="funkcije.js" type="text/javascript"></script>
+  <script src="java/novost.js"></script>
   <meta name="viewport" content="width=device-width, inital-scale=1.0"/>
 </head>
 
@@ -14,25 +52,6 @@
   <!--Start of header-->
   <header class="mainHeader">
     <img src="images/logo.gif" alt="logo">
-    <!--nav id="nav">
-        <ul>
-          <li><a href="index.php">Naslovnica</a></li>
-          <li><a href="#" onclick="pozovi('novosti')">Novosti</a></li>   
-          <li><a href="#" onclick="pozovi('galerija')">Galerija</a></li>
-          <li><a href="#" onclick="pozovi('ankete')">Članice</a></li>
-          <li><a href="#" onclick="pozovi('dokumenti')">Dokumenti</a></li>
-          <li><a href="#" onclick="pozovi('kontakt')">Kontakt<img src="images/arrow.png" /></a>
-                <ul class="submenu1">
-                  <li><a href="#" onclick="pozovi('gdjesmo')">Gdje smo</a></li>
-                  <li><a href="#">link neki</a></li>
-                  <ul class="submenu2">
-                    <li><a href="#">link 1</a></li>
-                    <li><a href="#">link 2</a></li>
-                  </ul>
-                </ul>
-          </li>
-        </ul>
-    </nav-->
       <nav id="nav">
         <ul>
           <li><a href="Pocetna.html#">Naslovnica</a></li>
@@ -57,18 +76,6 @@
 <!--End of header-->
   <div class="mainContent">
     <div class="content">
-     <article class="topContent">
-        <h2><a href="#" title="First post"> Nešto o nama </a></h2>
-        <p class="post-info"> Autor: Aida Hasović, 21.03.2015.</p>
-        <p>Vijeće mladih Općine Stari Grad Sarajevo je nevladina organizacija osnovana 11. aprila 2012. godine. Misija Vijeća mladih Stari Grad je postati krovna organizacija na području Općine Stari Grad Sarajevo koja predstavlja i zastupa interese mladih i omladinskih udruženja koristeći resurse udruženja članica Vijeća mladih. Članice Vijeća su omladinska udruženja, a trenutno Vijeće broji 10 članica.</p>
-        <p class="detalji"> <a href="#">Detaljnije...</a> </p>
-     </article>
-    <article class="topContent">
-        <h2><a href="#" title="Second post">Institut za razvoj mladih KULT</a></h2>
-        <p class="post-info"> Autor: Aida Hasović, 20.03.2015.</p>
-        <p>Institut za razvoj mladih KULT osnovan je na državnom nivou 2002. g. pod nazivom Udruženje KULT i pod tim nazivom je djelovao do maja 2011. g. Pored Centralnog ureda u Sarajevu imamo svoj ured u Brčko-Distriktu BiH i Gradačcu, koji su nastavili raditi pod starim nazivom. Naša saradnja s vlastima izuzetno je učinkovita i temelji se na partnerskim odnosima. KULT pokušava u svim mjestima u kojima ima svoj ured provoditi aktivnosti koje su ciljnoj grupi potrebne na licu mjesta. Kako bismo utvrdili težišta rada, svake godine održavamo radionice planiranja.</p>   
-        <p class="detalji"> <a href="http://www.mladi.org" >Detaljnije...</a> </p> 
-    </article>  
   </div>
  <aside class="Sidebar1">
     <article>
