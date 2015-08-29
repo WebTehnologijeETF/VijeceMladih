@@ -19,11 +19,11 @@
     <nav id="nav">
         <ul>
           <li><a href="Pocetna.html#">Naslovnica</a></li>
-          <li><a href="Novosti.php#">Novosti</a></li>   
+          <li><a href="novosti.php#">Novosti</a></li>   
           <li><a href="Galerija.html#">Galerija</a></li>
           <li><a href="Ankete.html#">Članice</a></li>
           <li><a href="Dokumenti.html#">Dokumenti</a></li>
-          <li><a href="Kontakt.html#">Kontakt<img src="images/arrow.png" /></a>
+          <li><a href="kontakt.php#">Kontakt<img src="images/arrow.png" /></a>
                 <ul class="submenu1">
                   <li><a href="KontaktAJAX#">Gdje smo</a></li>
                   <li><a href="#">link neki</a></li>
@@ -40,6 +40,58 @@
 <!--End of header-->
   <div class="mainContent">
   <div id="content" class="content">
+    <?php
+      $datoteke = scandir("novosti/");
+      $niz= array();
+      for ($i=2; $i < count($datoteke); $i++) {
+          $n = file("novosti/".$datoteke[$i]);
+          $datum= $n[0];
+          $autor= $n[1];
+          $naslov= $n[2];
+          $slika= $n[3];
+          $tekst="";
+          $minusi=count($n)-1;
+          $detaljniji="";
+          for ($j=4; $j<count($n); $j++) {
+            if ($n[$j]=="--") {
+              $minusi=$j;
+              break;
+            }
+            else $tekst=$tekst.$n[$j];
+          }
+          for ($j=$minusi+1; $j<count($n); $j++) {
+            $detaljniji=$detaljniji.$n[$j];
+          }
+
+          $datum=htmlspecialchars($datum, ENT_QUOTES, "UTF-8");
+          $autor=htmlspecialchars($autor, ENT_QUOTES, "UTF-8");
+          $naslov=htmlspecialchars($naslov, ENT_QUOTES, "UTF-8");
+          $slika=htmlspecialchars($slika, ENT_QUOTES, "UTF-8");
+          $tekst=htmlspecialchars($tekst, ENT_QUOTES, "UTF-8");
+          $minusi=htmlspecialchars($minusi, ENT_QUOTES, "UTF-8");
+          $detaljniji=htmlspecialchars($detaljniji, ENT_QUOTES, "UTF-8");
+
+          $element = array("datum" => $datum, "autor" => $autor, "naslov" => $naslov, "slika" => $slika, "tekst" => $tekst ,"minusi"=>$minusi,"detaljniji" => $detaljniji);
+          array_push($niz, $element);
+      }
+
+    /*  for ($i=0; $i < count($niz); $i++) {
+        for ($j=0; $j<count($niz)-1-$i; $j++) {
+            //strtodate($niz[$i]["datum"]); // PROVJERITI kako pretvoriti u datum i porediti dva datuma
+            if ($niz[$j+1] < $niz[$j]) {
+                $tmp = $niz[$j];
+                $niz[$j] = $niz[$j+1];
+                $niz[$j+1] = $tmp;
+            }
+        }
+      }
+*/
+      for ($i=0; $i < count($niz); $i++) {
+       // echo "<div class='kutijica'>".$niz[$i]["tekst"]."</div>";
+        echo "<div class='kutijica'>".$niz[$i]["naslov"]."<br>".$niz[$i]["autor"]."<br>".$niz[$i]["datum"]."<br>".$niz[$i]["slika"]."<br>".$niz[$i]["tekst"]."<br>".$niz[$i]["minusi"]."<br>".$niz[$i]["detaljniji"]."</div><br><br>";
+      }
+
+    ?>
   </div>
  <aside class="Sidebar1">
     <article>
@@ -63,7 +115,7 @@
     <p> Copyright &copy; 2015 Aida Hasović </p>
   </footer>
 </div>
-<?php include 'PrikazNovosti.php'; ?>
+
 </body>
 
 </html>
