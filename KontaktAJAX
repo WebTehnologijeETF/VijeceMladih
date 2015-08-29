@@ -42,7 +42,7 @@
   <div class="content">
     <article class="topContent">
 
-      <form class="forma" method="post" action="Ankete.html" autocomplete="off" enctype="multipart/form-data" name="form" id="ajaxForma"> 
+      <form class="forma" method="post" action="Pocetna.html" autocomplete="off" enctype="multipart/form-data" name="form" id="ajaxForma"> 
      <!-- <form id="forma" action="http://google.com" method="GET">-->
 
         <h2>Podaci o prebivalištu</h2>

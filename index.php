@@ -14,9 +14,9 @@
   <!--Start of header-->
   <header class="mainHeader">
     <img src="images/logo.gif" alt="logo">
-    <!--nav id="nav">
-        <ul>
-          <li><a href="index.php">Naslovnica</a></li>
+    <nav id="nav">
+        <!--ul>
+          <li><a href="index.html">Naslovnica</a></li>
           <li><a href="#" onclick="pozovi('novosti')">Novosti</a></li>   
           <li><a href="#" onclick="pozovi('galerija')">Galerija</a></li>
           <li><a href="#" onclick="pozovi('ankete')">Članice</a></li>
@@ -31,8 +31,8 @@
                   </ul>
                 </ul>
           </li>
-        </ul>
-    </nav-->
+        </ul-->
+    </nav>
       <nav id="nav">
         <ul>
           <li><a href="Pocetna.html#">Naslovnica</a></li>

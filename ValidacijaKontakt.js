@@ -1,4 +1,139 @@
-/*var ck_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+  
+function provjeriIme() {
+  var polje= document.getElementById("name");
+  if (polje.value.length > 2) return true;
+  else return false; 
+}
+
+function provjeriMail() {
+  var tekst= document.getElementById("email").value;
+  if (tekst.length == 0) return true;
+  if (tekst.length < 5) return false;
+  var flag=false;
+  var ludoA = 0;
+  for (i=1; i<tekst.length; i++) {
+    if (tekst.charAt(i)=='@') {
+      flag=true;
+      ludoA = i;
+      break;
+    }
+  }
+  if (!flag) return false;
+
+  var flag=false;
+  for (i=ludoA+1; i<tekst.length-1; i++) {
+     if (tekst.charAt(i)=='.') {
+      flag=true;
+      break;
+    }   
+  }
+  if (!flag) return false;
+
+  var brojac=0;
+  for (i=0; i<tekst.length; i++) {
+    if (tekst.charAt(i)=='@') brojac++;
+  }
+  if (brojac > 1) return false;
+  return true;
+
+}
+
+function provjeriTelefon() {
+  var tekst= document.getElementById("telefon").value;
+  if (tekst.length == 0) return true;
+  var telefonRegEx = /^\d{3}-\d{3}-\d{3}$/
+  return telefonRegEx.test(tekst);
+}
+
+function postaviZnak(polje) {
+    el=document.getElementById("name_validation");
+    el.setAttribute("class", "nevidljiv");
+        el=document.getElementById("email_validation");
+    el.setAttribute("class", "nevidljiv");
+        el=document.getElementById("telefon_validation");
+    el.setAttribute("class", "nevidljiv");
+
+  if (polje=="name") {
+    el=document.getElementById("name_validation");
+    el.setAttribute("class", "error");
+  }
+  else if (polje=="telefon") {
+    el=document.getElementById("telefon_validation");
+    el.setAttribute("class", "error");
+    el.innerHTML="<img src='images/error.png'> Neispravan broj telefona!";
+  }
+  else if (polje=="email") {
+    el=document.getElementById("email_validation");
+    el.setAttribute("class", "error");
+        el.innerHTML="<img src='images/error.png'> Neispravan email!";
+  }
+  else if (polje=="cross") {
+    el1=document.getElementById("telefon_validation");
+    el2=document.getElementById("email_validation");
+    el1.setAttribute("class", "error");
+    el2.setAttribute("class", "error");
+    el1.innerHTML="<img src='images/error.png'> Morate unijeti ili broj telefona ili e-mail";
+    el2.innerHTML="<img src='images/error.png'> Morate unijeti ili broj telefona ili e-mail";
+  }
+
+}
+
+function provjeriFormu() {
+  if(!provjeriIme()) {
+    postaviZnak("name");
+    return false;
+  }
+  if(!provjeriMail()) {
+    postaviZnak("email");
+    return false;
+  }
+  if(!provjeriTelefon()) {
+    postaviZnak("telefon");
+    return false;
+  }
+  if (document.getElementById("telefon").value.length > 0 || document.getElementById("email").value.length > 0) return true;
+  else {
+    postaviZnak("cross");
+    return false;
+  }
+
+}
+
+function MjestoOpcina() {
+              flag=false;
+                var ajax = new XMLHttpRequest();
+                ajax.onreadystatechange = function () {
+                    if (ajax.readyState == 4 && ajax.status == 200) {
+                        var odgovor = JSON.parse(ajax.responseText);
+                        if (Object.keys(odgovor)=="greska") {
+                         postaviZnak("opcina");
+                        }
+                        else {
+                          document.getElementById("ajaxForma").submit();
+                        }
+                        
+                    }
+                    if (ajax.readyState == 4 && ajax.status == 404)
+                          document.innerHTML = stranica.toString();
+                }
+                var mjesto = document.getElementById("mjesto").value;
+                var opcina = document.getElementById("opcina").value;
+                if (mjesto.length === 0) { 
+                     alert("Polje za unos mjesta je prazno!");
+                     return false;
+                }
+                if (opcina.length === 0) { 
+                     alert("Polje za unos opcine je prazno!");
+                     return false;
+                }
+                ajax.open("GET", "http://zamger.etf.unsa.ba/wt/mjesto_opcina.php?opcina=" + opcina+"&mjesto=" + mjesto, true);
+                ajax.send();
+               
+           
+
+            }
+  
+  /*var ck_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
 var name = forma.name;
 var email = forma.email
@@ -122,151 +257,3 @@ function validacijaPoruka(){
         return true;
     }
 }*/
-
-function provjeriIme() {
-  var polje= document.getElementById("name");
-  if (polje.value.length > 2) return true;
-  else return false; 
-}
-
-function provjeriMail() {
-  var tekst= document.getElementById("email").value;
-  if (tekst.length == 0) return true;
-  if (tekst.length < 5) return false;
-  var flag=false;
-  var ludoA = 0;
-  for (i=1; i<tekst.length; i++) {
-    if (tekst.charAt(i)=='@') {
-      flag=true;
-      ludoA = i;
-      break;
-    }
-  }
-  if (!flag) return false;
-
-  var flag=false;
-  for (i=ludoA+1; i<tekst.length-1; i++) {
-     if (tekst.charAt(i)=='.') {
-      flag=true;
-      break;
-    }   
-  }
-  if (!flag) return false;
-
-  var brojac=0;
-  for (i=0; i<tekst.length; i++) {
-    if (tekst.charAt(i)=='@') brojac++;
-  }
-  if (brojac > 1) return false;
-  return true;
-
-}
-
-function provjeriTelefon() {
-  var tekst= document.getElementById("telefon").value;
-  if (tekst.length == 0) return true;
-  var telefonRegEx = /^\d{3}-\d{3}-\d{3}$/
-  return telefonRegEx.test(tekst);
-}
-
-function postaviZnak(polje) {
-    el=document.getElementById("name_validation");
-    if (el!=null) el.setAttribute("class", "nevidljiv");
-        el=document.getElementById("email_validation");
-   if (el!=null) el.setAttribute("class", "nevidljiv");
-        el=document.getElementById("telefon_validation");
-   if (el!=null) el.setAttribute("class", "nevidljiv");
-            el=document.getElementById("opcina_validation");
-   if (el!=null) el.setAttribute("class", "nevidljiv");
-            el=document.getElementById("mjesto_validation");
-   if (el!=null) el.setAttribute("class", "nevidljiv");
-
-  if (polje=="name") {
-    el=document.getElementById("name_validation");
-    el.setAttribute("class", "error");
-  }
-  else if (polje=="telefon") {
-    el=document.getElementById("telefon_validation");
-    el.setAttribute("class", "error");
-    el.innerHTML="<img src='images/error.png'> Neispravan broj telefona!";
-  }
-  else if (polje=="email") {
-    el=document.getElementById("email_validation");
-    el.setAttribute("class", "error");
-        el.innerHTML="<img src='images/error.png'> Neispravan email!";
-  }
-  else if (polje=="cross") {
-    el1=document.getElementById("telefon_validation");
-    el2=document.getElementById("email_validation");
-    el1.setAttribute("class", "error");
-    el2.setAttribute("class", "error");
-    el1.innerHTML="<img src='images/error.png'> Morate unijeti ili broj telefona ili e-mail";
-    el2.innerHTML="<img src='images/error.png'> Morate unijeti ili broj telefona ili e-mail";
-  }
-  else if (polje=="opcina") {
-    el=document.getElementById("opcina_validation");
-    el.setAttribute("class", "error");
-    el=document.getElementById("mjesto_validation");
-    el.setAttribute("class", "error");
-        
-  } 
-
-}
-
-function provjeriFormu() {
-  if(!provjeriIme()) {
-    postaviZnak("name");
-    return false;
-  }
-  if(!provjeriMail()) {
-    postaviZnak("email");
-    return false;
-  }
-  if(!provjeriTelefon()) {
-    postaviZnak("telefon");
-    return false;
-  }
-  if (document.getElementById("telefon").value.length > 0 || document.getElementById("email").value.length > 0) return true;
-  else {
-    postaviZnak("cross");
-    return false;
-  }
-
-
-
-}
-
-function MjestoOpcina() {
-              flag=false;
-                var ajax = new XMLHttpRequest();
-                ajax.onreadystatechange = function () {
-                    if (ajax.readyState == 4 && ajax.status == 200) {
-                        var odgovor = JSON.parse(ajax.responseText);
-                        if (Object.keys(odgovor)=="greska") {
-                         postaviZnak("opcina");
-                        }
-                        else {
-                          document.getElementById("ajaxForma").submit();
-                        }
-                        
-                    }
-                    if (ajax.readyState == 4 && ajax.status == 404)
-                          document.innerHTML = stranica.toString();
-                }
-                var mjesto = document.getElementById("mjesto").value;
-                var opcina = document.getElementById("opcina").value;
-                if (mjesto.length === 0) { 
-                     alert("Polje za unos mjesta je prazno!");
-                     return false;
-                }
-                if (opcina.length === 0) { 
-                     alert("Polje za unos opcine je prazno!");
-                     return false;
-                }
-                ajax.open("GET", "http://zamger.etf.unsa.ba/wt/mjesto_opcina.php?opcina=" + opcina+"&mjesto=" + mjesto, true);
-                ajax.send();
-               
-           
-
-            }
-  

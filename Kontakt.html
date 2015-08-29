@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- FORMULAR ISPRAVNO RADI NA CHROME BROSWERU! -->
 <head>
   <title> Vijece mladih OO Stari Grad</title>
   <meta charset="utf-8" />
@@ -24,7 +24,7 @@
           <li><a href="Galerija.html#">Galerija</a></li>
           <li><a href="Ankete.html#">Članice</a></li>
           <li><a href="Dokumenti.html#">Dokumenti</a></li>
-          <li><a href="Kontakt.html#">Kontakt<img src="images/arrow.png" /></a>
+          <li><a href="Kontakt.html#">Kontakt<img src="images/arrow.png" alt="arrow"/></a>
                 <ul class="submenu1">
                   <li><a href="KontaktAJAX#">Gdje smo</a></li>
                   <li><a href="#">link neki</a></li>
@@ -41,27 +41,27 @@
  <div class="mainContent"> 
   <div class="content">
     <article class="topContent">
-    <form id="forma" name="forma" action="Ankete.html" method="post" onsubmit="return provjeriFormu()" enctype="plain/text">
+    <form id="forma" name="forma" action="Kontakt.html" method="post" onsubmit="return provjeriFormu()">
       <h2>Kontakt forma</h2>
       <label class="required" for="name">Ime i prezime: </label>
       <input id="name" name="name" type="text" value=""/>
-      <span id="name_validation" class="nevidljiv"><img src='images/error.png'>Ime mora sadržati najmanje 3 karaktera! </span>
+      <span id="name_validation" class="nevidljiv"><img src='images/error.png' alt="error">Ime mora sadržati najmanje 3 karaktera! </span>
 
       <label for="email">Email: </label>
-      <input id="email" name="email" type="text" value=""/>
-      <span id="email_validation" class="nevidljiv"><img src='images/error.png'> Neispravan e-mail! </span>
+      <input id="email" name="email" type="text" value=""/> <!-- <input type="text"> -->
+      <span id="email_validation" class="nevidljiv"><img src='images/error.png' alt="error"> Neispravan e-mail! </span>
 
       <label for="telefon">Broj telefona(format: xxx-xxx-xxx): </label>
-      <input type="tel" name="telefon" id="telefon" />
-      <span id="telefon_validation" class="nevidljiv"><img src='images/error.png'> Neispravan broj telefona! </span>
+      <input type="tel" name="telefon" id="telefon" /> <!-- <input type="tel"> -->
+      <span id="telefon_validation" class="nevidljiv"><img src='images/error.png' alt="error"> Neispravan broj telefona! </span>
 
-      <label for="naslov">Naslov: </label>
-      <input name="naslov"autocompl/>
+      <label id="naslov">Naslov: </label>
+      <input name="naslov"/>
 
-      <label for="comment">Komentar: </label>
+      <label id="comment">Komentar: </label>
       <textarea name="comment"></textarea>
 
-      <input class="smallButton" type="submit" value ="Pošalji"/>
+      <input class="smallButton" type="submit" value ="Pošalji"/> <!-- <input type="submit"> -->
       <input class="smallButton" type="reset" value="Poništi"/> 
     </form>
     <div id="Upisi"></div>
